@@ -36,7 +36,8 @@ The app will be available at http://localhost:8501 in your browser.
 
 ## How to Use
 
-1. Open the app in your browser.
+1. Open the [app](https://stock-market-clustering.streamlit.app/) in your browser.
+ in your browser.
 2. In the **Input Features** section, provide the stock details:
    - **Market Value per Share** (in SAR)
    - **EV to MV Ratio**
