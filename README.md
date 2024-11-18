@@ -7,6 +7,15 @@ This is a Streamlit-based web app that predicts which cluster a stock belongs to
 - **Cluster 1**: Undervalued or heavily indebted companies, typically from high-risk sectors. Higher risk, potentially higher returns.
 - **Cluster 2**: Premium companies with high market value, low debt, and high dividends. Likely from stable sectors, offering stability and good returns.
 
+## Cluster Visualization
+
+To understand the distribution of stocks within different clusters, the 2D visualization below shows how the clustering algorithm has grouped the data based on the main principal components:
+
+![image](https://github.com/user-attachments/assets/271fa415-f2a5-4b74-b572-7b5917964718)
+
+This plot highlights the spread and boundaries of each cluster, aiding in the interpretation of how stocks are categorized.
+
+
 ## Features
 - **Predict Cluster**: Enter the stock's features in the text boxes (Market Value per Share, EV to MV Ratio, Dividend per Share, and Sector) and click "Predict Cluster" to get the predicted cluster and its brief description.
 - **Interactive UI**: The app provides an interactive user interface where users can input their data and see results instantly.
