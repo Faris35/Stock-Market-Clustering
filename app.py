@@ -21,15 +21,9 @@ st.sidebar.write(
 
 # Feature input sliders and dropdown
 st.write("#### Input Features")
-market_value_per_share = st.slider(
-    "Market Value per Share (in SAR)", min_value=0.0, max_value=1000.0, value=50.0, step=0.1
-)
-ev_to_mv_ratio = st.slider(
-    "EV to MV Ratio", min_value=0.0, max_value=10.0, value=1.0, step=0.01
-)
-dividend_per_share = st.slider(
-    "Dividend per Share (in SAR)", min_value=0.0, max_value=100.0, value=5.0, step=0.1
-)
+market_value_per_share = st.text_input("Market Value per Share (in SAR)", "50.0")
+ev_to_mv_ratio = st.text_input("EV to MV Ratio", "1.0")
+dividend_per_share = st.text_input("Dividend per Share (in SAR)", "5.0")
 sector = st.selectbox(
     "Sector (encoded)", 
     options={
