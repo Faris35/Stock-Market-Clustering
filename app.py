@@ -1,10 +1,35 @@
 import streamlit as st
 import requests
+import os
+import google.generativeai as genai
+
+
+
 
 # API
 API_URL = "https://stock-market-clustering.onrender.com/predict"
 
 GEMINI_API_KEY='AIzaSyAXZ951oULZ9pasWoL8Elyu-6al_geB3Gg'
+genai.configure(api_key=os.environ[GEMINI_API_KEY])
+
+# Create the model
+generation_config = {
+  "temperature": 1,
+  "top_p": 0.95,
+  "top_k": 40,
+  "max_output_tokens": 8192,
+  "response_mime_type": "text/plain",
+}
+
+model = genai.GenerativeModel(
+  model_name="gemini-1.5-flash",
+  generation_config=generation_config,
+)
+
+chat_session = model.start_chat(
+  history=[
+  ]
+)
 
 # Cluster descriptions
 cluster_descriptions = {
@@ -95,23 +120,10 @@ if st.button("🔍 Predict Cluster"):
                 st.success(f"🏷️ Predicted Cluster: **{cluster_label}**")
                 st.write(f"### Description: {description}")
                 
-                # Ask Gemini for stock information
-                gemini_url = f"https://api.gemini.com/v1/pubticker/{symbol}"
-                headers = {"Authorization": f"Bearer {GEMINI_API_KEY}"}
-                gemini_response = requests.get(gemini_url, headers=headers)
-                
-                if gemini_response.status_code == 200:
-                    gemini_data = gemini_response.json()
-                    st.write("### Stock Information from Gemini")
-                    st.write(f"**Symbol**: {symbol}")
-                    st.write(f"**Last Price**: {gemini_data.get('last', 'N/A')}")
-                    st.write(f"**Bid**: {gemini_data.get('bid', 'N/A')}")
-                    st.write(f"**Ask**: {gemini_data.get('ask', 'N/A')}")
-                else:
-                    st.error(f"❌ Could not retrieve stock information from Gemini: {gemini_response.status_code}")
+                response = chat_session.send_message("Give a brief information for this stock" + symbol + "in Saudi market")
+                print(response.text)
+
             else:
                 st.error(f"❌ Error: {response_data.get('error', 'Unknown error')}")
         except Exception as e:
             st.error(f"❌ Could not connect to the API: {e}")
-
-    
