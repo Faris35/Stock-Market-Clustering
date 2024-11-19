@@ -1,8 +1,10 @@
 import streamlit as st
 import requests
 
-# API URL
+# API
 API_URL = "https://stock-market-clustering.onrender.com/predict"
+
+GEMINI_API_KEY='AIzaSyAXZ951oULZ9pasWoL8Elyu-6al_geB3Gg'
 
 # Cluster descriptions
 cluster_descriptions = {
@@ -42,6 +44,7 @@ st.sidebar.write(
 
 # Feature input text boxes
 st.write("#### Input Features")
+symbol = st.text_input("Symbol", "2222")
 market_value_per_share = st.text_input("Market Value per Share", "50.0")
 ev_to_mv_ratio = st.text_input("EV to MV Ratio", "1.0")
 dividend_per_share = st.text_input("Dividend per Share", "5.0")
@@ -91,7 +94,24 @@ if st.button("🔍 Predict Cluster"):
                 description = cluster_descriptions.get(cluster_label, "No description available.")
                 st.success(f"🏷️ Predicted Cluster: **{cluster_label}**")
                 st.write(f"### Description: {description}")
+                
+                # Ask Gemini for stock information
+                gemini_url = f"https://api.gemini.com/v1/pubticker/{symbol}"
+                headers = {"Authorization": f"Bearer {GEMINI_API_KEY}"}
+                gemini_response = requests.get(gemini_url, headers=headers)
+                
+                if gemini_response.status_code == 200:
+                    gemini_data = gemini_response.json()
+                    st.write("### Stock Information from Gemini")
+                    st.write(f"**Symbol**: {symbol}")
+                    st.write(f"**Last Price**: {gemini_data.get('last', 'N/A')}")
+                    st.write(f"**Bid**: {gemini_data.get('bid', 'N/A')}")
+                    st.write(f"**Ask**: {gemini_data.get('ask', 'N/A')}")
+                else:
+                    st.error(f"❌ Could not retrieve stock information from Gemini: {gemini_response.status_code}")
             else:
                 st.error(f"❌ Error: {response_data.get('error', 'Unknown error')}")
         except Exception as e:
             st.error(f"❌ Could not connect to the API: {e}")
+
+    
