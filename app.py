@@ -1,6 +1,5 @@
 import streamlit as st
 import requests
-import os
 import google.generativeai as genai
 
 
@@ -10,7 +9,7 @@ import google.generativeai as genai
 API_URL = "https://stock-market-clustering.onrender.com/predict"
 
 GEMINI_API_KEY='AIzaSyAXZ951oULZ9pasWoL8Elyu-6al_geB3Gg'
-genai.configure(api_key=os.environ[GEMINI_API_KEY])
+genai.configure(api_key=GEMINI_API_KEY)
 
 # Create the model
 generation_config = {
