@@ -11,7 +11,7 @@ This is a Streamlit-based web app that predicts which cluster a stock belongs to
 
 To understand the distribution of stocks within different clusters, the 2D visualization below shows how the clustering algorithm has grouped the data based on the main principal components:
 
-![image](https://github.com/user-attachments/assets/271fa415-f2a5-4b74-b572-7b5917964718)
+[image](https://github.com/user-attachments/assets/d1dd0ad2-cfc0-4d7f-bea6-e617a7c6857f)
 
 This plot highlights the spread and boundaries of each cluster, aiding in the interpretation of how stocks are categorized.
 
