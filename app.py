@@ -42,22 +42,22 @@ st.sidebar.write(
 
 # Feature input text boxes
 st.write("#### Input Features")
-market_value_per_share = st.text_input("Market Value per Share (in SAR)", "50.0")
+market_value_per_share = st.text_input("Market Value per Share", "50.0")
 ev_to_mv_ratio = st.text_input("EV to MV Ratio", "1.0")
-dividend_per_share = st.text_input("Dividend per Share (in SAR)", "5.0")
+dividend_per_share = st.text_input("Dividend per Share", "5.0")
 sector = st.selectbox(
     "Sector (encoded)", 
     options=sector_mapping.keys(), 
-    format_func=lambda x: f"{x} - {sector_mapping[x]}"
+    format_func=lambda x: f"{sector_mapping[x]}"
 )
 
 # Display current selections
 st.write("#### Your Selections")
 st.write(
     f"""
-- **Market Value per Share**: {market_value_per_share} SAR  
+- **Market Value per Share**: {market_value_per_share}   
 - **EV to MV Ratio**: {ev_to_mv_ratio}  
-- **Dividend per Share**: {dividend_per_share} SAR  
+- **Dividend per Share**: {dividend_per_share}   
 - **Sector**: {sector} - {sector_mapping[sector]}
 """
 )
