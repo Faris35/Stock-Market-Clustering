@@ -79,15 +79,15 @@ sector = st.selectbox(
 )
 
 # Display current selections
-st.write("#### Your Selections")
-st.write(
-    f"""
-- **Market Value per Share**: {market_value_per_share}   
-- **EV to MV Ratio**: {ev_to_mv_ratio}  
-- **Dividend per Share**: {dividend_per_share}   
-- **Sector**: {sector_mapping[sector]}
-"""
-)
+# st.write("#### Your Selections")
+# st.write(
+#     f"""
+# - **Market Value per Share**: {market_value_per_share}   
+# - **EV to MV Ratio**: {ev_to_mv_ratio}  
+# - **Dividend per Share**: {dividend_per_share}   
+# - **Sector**: {sector_mapping[sector]}
+# """
+# )
 
 # Prediction button
 if st.button("🔍 Predict Cluster"):
