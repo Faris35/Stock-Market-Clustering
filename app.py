@@ -116,7 +116,14 @@ if st.button("🔍 Predict Cluster"):
             if "pred" in response_data:
                 cluster_label = response_data["pred"]
                 description = cluster_descriptions.get(cluster_label, "No description available.")
-                st.success(f"🏷️ Predicted Cluster: **{cluster_label}**")
+                if cluster_label == 0:
+                    st.success("🟣 **Cluster 0 (Balanced Performers)")
+                elif cluster_label == 1:
+                    st.success("🟢 **Cluster 1 (High Risk)")
+                else:
+                    st.success("🟡 **Cluster 2 (Premium Elites)")
+
+                #st.success(f"🏷️ Predicted Cluster: **{cluster_label}**")
                 st.write(f"### Description: {description}")
                 
                 # response = chat_session.send_message(f"Provide a brief description of the company associated with the stock symbol {symbol} in the Saudi market. The description should include general information about the company's sector and primary activities. It is ok if it not Real-time data")
