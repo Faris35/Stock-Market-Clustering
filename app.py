@@ -117,11 +117,11 @@ if st.button("🔍 Predict Cluster"):
                 cluster_label = response_data["pred"]
                 description = cluster_descriptions.get(cluster_label, "No description available.")
                 if cluster_label == 0:
-                    st.success("🟣 **Cluster 0 (Balanced Performers)")
+                    st.success("🟣 Cluster 0 (Balanced Performers)")
                 elif cluster_label == 1:
-                    st.success("🟢 **Cluster 1 (High Risk)")
+                    st.success("🟢 Cluster 1 (High Risk)")
                 else:
-                    st.success("🟡 **Cluster 2 (Premium Elites)")
+                    st.success("🟡 Cluster 2 (Premium Elites)")
 
                 #st.success(f"🏷️ Predicted Cluster: **{cluster_label}**")
                 st.write(f"### Description: {description}")
