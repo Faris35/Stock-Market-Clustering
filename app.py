@@ -8,27 +8,27 @@ import google.generativeai as genai
 # API
 API_URL = "https://stock-market-clustering.onrender.com/predict"
 
-GEMINI_API_KEY='AIzaSyAXZ951oULZ9pasWoL8Elyu-6al_geB3Gg'
-genai.configure(api_key=GEMINI_API_KEY)
+# GEMINI_API_KEY
+# genai.configure(api_key=GEMINI_API_KEY)
 
-# Create the model
-generation_config = {
-  "temperature": 1,
-  "top_p": 0.95,
-  "top_k": 40,
-  "max_output_tokens": 8192,
-  "response_mime_type": "text/plain",
-}
+# # Create the model
+# generation_config = {
+#   "temperature": 1,
+#   "top_p": 0.95,
+#   "top_k": 40,
+#   "max_output_tokens": 8192,
+#   "response_mime_type": "text/plain",
+# }
 
-model = genai.GenerativeModel(
-  model_name="gemini-1.5-flash",
-  generation_config=generation_config,
-)
+# model = genai.GenerativeModel(
+#   model_name="gemini-1.5-flash",
+#   generation_config=generation_config,
+# )
 
-chat_session = model.start_chat(
-  history=[
-  ]
-)
+# chat_session = model.start_chat(
+#   history=[
+#   ]
+# )
 
 # Cluster descriptions
 cluster_descriptions = {
@@ -119,9 +119,9 @@ if st.button("🔍 Predict Cluster"):
                 st.success(f"🏷️ Predicted Cluster: **{cluster_label}**")
                 st.write(f"### Description: {description}")
                 
-                response = chat_session.send_message(f"Provide a brief description of the company associated with the stock symbol {symbol} in the Saudi market. The description should include general information about the company's sector and primary activities. It is ok if it not Real-time data")
+                # response = chat_session.send_message(f"Provide a brief description of the company associated with the stock symbol {symbol} in the Saudi market. The description should include general information about the company's sector and primary activities. It is ok if it not Real-time data")
                 
-                st.write(response.text)
+                # st.write(response.text)
 
             else:
                 st.error(f"❌ Error: {response_data.get('error', 'Unknown error')}")
