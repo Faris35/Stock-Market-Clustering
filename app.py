@@ -58,7 +58,7 @@ st.write(
 - **Market Value per Share**: {market_value_per_share}   
 - **EV to MV Ratio**: {ev_to_mv_ratio}  
 - **Dividend per Share**: {dividend_per_share}   
-- **Sector**: {sector} - {sector_mapping[sector]}
+- **Sector**: {sector_mapping[sector]}
 """
 )
 
