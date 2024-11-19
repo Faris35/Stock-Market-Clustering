@@ -68,7 +68,7 @@ st.sidebar.write(
 
 # Feature input text boxes
 st.write("#### Input Features")
-symbol = st.text_input("Symbol", "2222")
+#symbol = st.text_input("Symbol", "2222")
 market_value_per_share = st.text_input("Market Value per Share", "50.0")
 ev_to_mv_ratio = st.text_input("EV to MV Ratio", "1.0")
 dividend_per_share = st.text_input("Dividend per Share", "5.0")
