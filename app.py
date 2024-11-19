@@ -120,7 +120,8 @@ if st.button("🔍 Predict Cluster"):
                 st.write(f"### Description: {description}")
                 
                 response = chat_session.send_message("Give a brief information for this stock" + symbol + "in Saudi market")
-                print(response.text)
+                
+                st.write(response.text)
 
             else:
                 st.error(f"❌ Error: {response_data.get('error', 'Unknown error')}")
