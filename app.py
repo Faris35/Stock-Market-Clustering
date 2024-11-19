@@ -54,7 +54,7 @@ sector_mapping = {
 
 # Streamlit UI
 st.title("📊 Stock Clustering Prediction App")
-st.write("### Discover which cluster a stock belongs to by entering its features below.")
+st.write("### Find out where a stock fits by entering its information")
 
 # Sidebar instructions
 st.sidebar.header("ℹ️ How to Use")
