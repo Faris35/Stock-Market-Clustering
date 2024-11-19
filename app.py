@@ -119,7 +119,7 @@ if st.button("🔍 Predict Cluster"):
                 st.success(f"🏷️ Predicted Cluster: **{cluster_label}**")
                 st.write(f"### Description: {description}")
                 
-                response = chat_session.send_message(f"Provide a brief description of the company associated with the stock symbol {symbol} in the Saudi market. The description should include general information about the company's sector and primary activities. Real-time data or updates are not necessary")
+                response = chat_session.send_message(f"Provide a brief description of the company associated with the stock symbol {symbol} in the Saudi market. The description should include general information about the company's sector and primary activities. It is ok if it not Real-time data")
                 
                 st.write(response.text)
 
