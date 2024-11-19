@@ -46,7 +46,7 @@ market_value_per_share = st.text_input("Market Value per Share", "50.0")
 ev_to_mv_ratio = st.text_input("EV to MV Ratio", "1.0")
 dividend_per_share = st.text_input("Dividend per Share", "5.0")
 sector = st.selectbox(
-    "Sector (encoded)", 
+    "Sector", 
     options=sector_mapping.keys(), 
     format_func=lambda x: f"{sector_mapping[x]}"
 )
