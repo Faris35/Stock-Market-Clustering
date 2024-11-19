@@ -11,6 +11,21 @@ cluster_descriptions = {
     2: "Premium companies with high market value, low debt, and high dividends. Likely from stable sectors, offering stability and good returns.",
 }
 
+# Sector encoding
+sector_mapping = {
+    5: "Financial Services",
+    0: "Basic Materials",
+    7: "Industrials",
+    2: "Consumer Cyclical",
+    8: "Real Estate",
+    3: "Consumer Defensive",
+    6: "Healthcare",
+    1: "Communication Services",
+    4: "Energy",
+    9: "Technology",
+    10: "Utilities",
+}
+
 # Streamlit UI
 st.title("📊 Stock Clustering Prediction App")
 st.write("### Discover which cluster a stock belongs to by entering its features below.")
@@ -32,14 +47,8 @@ ev_to_mv_ratio = st.text_input("EV to MV Ratio", "1.0")
 dividend_per_share = st.text_input("Dividend per Share (in SAR)", "5.0")
 sector = st.selectbox(
     "Sector (encoded)", 
-    options={
-        1: "Energy",
-        2: "Financials",
-        3: "Healthcare",
-        4: "Technology",
-        5: "Consumer Goods",
-    }, 
-    format_func=lambda x: f"{x} - {['Energy', 'Financials', 'Healthcare', 'Technology', 'Consumer Goods'][x-1]}"
+    options=sector_mapping.keys(), 
+    format_func=lambda x: f"{x} - {sector_mapping[x]}"
 )
 
 # Display current selections
@@ -49,7 +58,7 @@ st.write(
 - **Market Value per Share**: {market_value_per_share} SAR  
 - **EV to MV Ratio**: {ev_to_mv_ratio}  
 - **Dividend per Share**: {dividend_per_share} SAR  
-- **Sector**: {sector} - {['Energy', 'Financials', 'Healthcare', 'Technology', 'Consumer Goods'][sector-1]}
+- **Sector**: {sector} - {sector_mapping[sector]}
 """
 )
 
